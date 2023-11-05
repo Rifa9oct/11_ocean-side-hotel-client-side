@@ -33,7 +33,7 @@ const Navbar = () => {
     return (
 
         <div>
-            <div className="md:absolute top-10 left-[50px] lg:left-[320px] md:px-8 py-2 bg-white rounded-lg" >
+            <div className="md:absolute top-10 left-[35px] lg:left-[320px] md:px-8 py-2 bg-white rounded-lg" >
                 <ul className="flex flex-col gap-4 md:flex-row items-center mt-4 font-medium  text-gray-500">
                     {navlinks}
                 </ul>

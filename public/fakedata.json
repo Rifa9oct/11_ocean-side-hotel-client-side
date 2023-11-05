@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "img": "https://i.ibb.co/PTpwmS2/single.png",
+        "title": "Single Room",
+        "price": 800,
+        "review": 6,
+        "description": "Cozy single room with a comfortable bed, perfect for solo travelers."
+    },
+    {
+        "id": 2,
+        "img": "https://i.ibb.co/sqZvJ1c/double.png",
+        "title": "Double Room",
+        "price": 500,
+        "review": 10,
+        "description": "Spacious double room with two beds, ideal for couples or friends."
+    },
+    {
+        "id": 3,
+        "img": "https://i.ibb.co/yXjnGmh/Super-Suite.png",
+        "title": "Super Suite",
+        "price": 1800,
+        "review": 2,
+        "description": "Luxurious super suite with a private balcony and stunning views."
+    },
+    {
+        "id": 4,
+        "img": "https://i.ibb.co/dWfJRD6/Deluxe-Suite.png",
+        "title": "Deluxe Suite",
+        "price": 1500,
+        "review": 4,
+        "description": "Elegant deluxe suite with a separate living area and modern amenities."
+    },
+    {
+        "id": 5,
+        "img": "https://i.ibb.co/PjJ0cwD/honeymoon.png",
+        "title": "Honeymoon Suite",
+        "price": 2000,
+        "review": 8,
+        "description": "Romantic honeymoon suite with a Jacuzzi and champagne on arrival."
+    },
+    {
+        "id": 6,
+        "title": "Family Suite",
+        "price": 350,
+        "review": 7,
+        "description": "Spacious family suite with multiple bedrooms and a living area.",
+        "img": "https://i.ibb.co/Nrsq9ZF/Untitled-1.png",
+        "imageAlt": "Family Suite Image"
+    }
+]
