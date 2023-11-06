@@ -1,15 +1,17 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { MdOutlineBedroomChild } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const RoomDetail = () => {
+    const { user } = useContext(AuthContext)
     const lodeData = useLoaderData();
-    
+
     const { id } = useParams();
     console.log(id)
     const data = lodeData.find(data => data._id === id);
-    const { img, title, roomDetail, price, roomSize, description,availability } = data;
+    const { img, title, roomDetail, price, roomSize, description, availability } = data;
 
     const [date, setDate] = useState([]);
 
@@ -68,8 +70,14 @@ const RoomDetail = () => {
                                     <input type="date" name="checkOut" className="input input-bordered input-secondary w-[200px]" />
                                 </div>
                             </div>
-                            <button type="submit" className="rounded-lg bg-purple-400 px-5 py-2 text-white font-bold mt-10
-                     hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable":"Book Now"}</button>
+                            
+                            {
+                                user ? <>
+                                    <button type="submit" className="rounded-lg bg-purple-400 px-5 py-2 text-white font-bold mt-10 hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable" : "Book Now"}</button>
+                                </>: 
+                                <><Link to="/login"><button type="submit" className="rounded-lg bg-purple-400 px-5 py-2 text-white font-bold mt-10
+                                hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable":"Book Now"}</button></Link></>
+                            }
 
                             {/* modal */}
                             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
