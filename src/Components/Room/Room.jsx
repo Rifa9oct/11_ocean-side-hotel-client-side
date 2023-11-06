@@ -3,11 +3,11 @@ import { MdOutlineRateReview } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 const Room = ({ room }) => {
-    const { id, img, title, price, review, description } = room;
+    const { _id, img, title, price, review, description } = room;
 
     const navigate =useNavigate();
     const handleClick =  () => {
-        navigate(`/roomDetail/${id}`)             
+        navigate(`/roomDetail/${_id}`)             
     }
     return (
         <div className={"md:w-[626px] mx-auto"}>

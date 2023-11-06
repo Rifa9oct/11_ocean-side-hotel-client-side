@@ -8,7 +8,7 @@ const Rooms = () => {
     const [rooms, setRooms] = useState([]);
     const [sortByPrice, setSortByPrice] = useState(false);
     useEffect(() => {
-        fetch("fakedata.json")
+        fetch("http://localhost:5000/rooms")
             .then(res => res.json())
             .then(data => setRooms(data))
     }, [])
@@ -37,7 +37,7 @@ const Rooms = () => {
 
                 <div className="max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
                     {
-                        FilteredRooms.map(room => <Room key={room.id} room={room}></Room>)
+                        FilteredRooms.map(room => <Room key={room._id} room={room}></Room>)
                     }
                 </div>
             </div>

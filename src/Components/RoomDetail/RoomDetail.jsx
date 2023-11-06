@@ -5,10 +5,10 @@ import { useState } from "react";
 
 const RoomDetail = () => {
     const lodeData = useLoaderData();
-
+    
     const { id } = useParams();
-    const idInt = parseInt(id);
-    const data = lodeData.find(data => data.id === idInt);
+    console.log(id)
+    const data = lodeData.find(data => data._id === id);
     const { img, title, roomDetail, price, roomSize, description,availability } = data;
 
     const [date, setDate] = useState([]);
