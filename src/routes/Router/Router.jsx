@@ -6,6 +6,7 @@ import AboutUs from "../../pages/About Us/AboutUs";
 import Rooms from "../../pages/Rooms/Rooms";
 import MyBookings from "../../pages/My Bookings/MyBookings";
 import Gallery from "../../pages/Galery/Gallery";
+import RoomDetail from "../../Components/RoomDetail/RoomDetail";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
       {
         path: "/rooms",
         element: <Rooms></Rooms>
+      },
+      {
+        path: "/roomDetail/:id",
+        element: <RoomDetail></RoomDetail>,
+        loader: ()=>fetch('fakedata.json')
       },
       {
         path: "/myBookings",

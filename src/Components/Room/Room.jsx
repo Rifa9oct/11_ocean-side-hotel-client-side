@@ -1,12 +1,17 @@
 import { TbHomeDollar } from "react-icons/tb";
 import { MdOutlineRateReview } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Room = ({ room }) => {
-    console.log(room)
     const { id, img, title, price, review, description } = room;
+
+    const navigate =useNavigate();
+    const handleClick =  () => {
+        navigate(`/roomDetail/${id}`)             
+    }
     return (
         <div className={"md:w-[626px] mx-auto"}>
-            <img src={img} />
+            <img onClick={handleClick} src={img} />
             <h1 className="text-xl my-2 md:text-2xl font-bold mt-3">{title}</h1>
             <p className="text-gray-600">{description}</p>
             <div className="flex items-center gap-20">
