@@ -1,26 +1,27 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { MdOutlineBedroomChild } from "react-icons/md";
 import { FiDollarSign } from "react-icons/fi";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const RoomDetail = () => {
-    const { user } = useContext(AuthContext)
+    const { user } = useContext(AuthContext);
     const lodeData = useLoaderData();
+    console.log(lodeData);
 
-    const { id } = useParams();
-    console.log(id)
-    const data = lodeData.find(data => data._id === id);
-    const { img, title, roomDetail, price, roomSize, description, availability } = data;
+    const { img, title, roomDetail, price, roomSize, description, availability } = lodeData;
 
     const [date, setDate] = useState([]);
 
     const handleSubmit = e => {
         e.preventDefault();
+        const form = e.target;
         const checkIn = e.target.checkIn.value;
         const checkOut = e.target.checkOut.value;
         const date = { checkIn, checkOut };
         setDate(date)
+        form.reset();
     }
     const { checkIn, checkOut } = date;
     const [availableRooms, setAvailableRooms] = useState(availability);
@@ -36,7 +37,30 @@ const RoomDetail = () => {
         if (availableRooms > 0) {
             setAvailableRooms(availableRooms - 1);
         }
+        const { email } = user;
+        console.log(user)
+        const order = { img, email, totalPrice, checkInDate, checkOutDate, title, description };
+        fetch(`http://localhost:5000/bookings`, {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Good job!',
+                        text: 'Booking added successfully.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                }
+            })
     }
+    
     console.log(availableRooms)
     return (
         <div className="mb-32">
@@ -70,13 +94,13 @@ const RoomDetail = () => {
                                     <input type="date" name="checkOut" className="input input-bordered input-secondary w-[200px]" />
                                 </div>
                             </div>
-                            
+
                             {
                                 user ? <>
                                     <button type="submit" className="rounded-lg bg-purple-400 px-5 py-2 text-white font-bold mt-10 hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable" : "Book Now"}</button>
-                                </>: 
-                                <><Link to="/login"><button type="submit" className="rounded-lg bg-purple-400 px-5 py-2 text-white font-bold mt-10
-                                hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable":"Book Now"}</button></Link></>
+                                </> :
+                                    <><Link to="/login"><button type="submit" className="rounded-lg bg-purple-400 px-5 py-2 text-white font-bold mt-10
+                                hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable" : "Book Now"}</button></Link></>
                             }
 
                             {/* modal */}

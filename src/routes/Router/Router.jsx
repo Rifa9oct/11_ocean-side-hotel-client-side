@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       {
         path: "/roomDetail/:id",
         element: <RoomDetail></RoomDetail>,
-        loader: ()=>fetch('http://localhost:5000/rooms')
+        loader: ({params})=>fetch(`http://localhost:5000/rooms/${params.id}`)
       },
       {
         path: "/myBookings",
