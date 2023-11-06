@@ -76,7 +76,7 @@ const Login = () => {
                         </div>
 
                         <div className="w-3/4 mx-auto mt-6">
-                            <button className="bg-purple-700 font-semibold text-white py-2 px-4 w-24 md:w-32 rounded-3xl hover:scale-105">Sign In</button>
+                            <button type="submit" className="bg-purple-700 font-semibold text-white py-2 px-4 w-24 md:w-32 rounded-3xl hover:scale-105">Sign In</button>
                         </div>
                     </form>
                 </div>

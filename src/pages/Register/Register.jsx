@@ -16,7 +16,7 @@ const Register = () => {
         const photoUrl = e.target.photo.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        const accepted = e.target.terms.checked;
+        console.log(name, photoUrl, email, password)
 
         //password verification
         if (password.length < 6) {
@@ -29,10 +29,6 @@ const Register = () => {
         }
         else if (!/[^\w]/.test(password)) {
             Swal.fire("Opps!", "Your password should have at least a special character", "error");
-            return;
-        }
-        else if (!accepted) {
-            Swal.fire("Opps!", "Your should have accepted our terms and condition", "error");
             return;
         }
 
@@ -49,7 +45,6 @@ const Register = () => {
             .catch(error => {
                 Swal.fire("Opps!", error.message, "error");
             })
-
     }
 
     return (
@@ -68,14 +63,14 @@ const Register = () => {
 
                 <div>
                     <form onSubmit={handleRegister}>
-                        <div className="form-control mt-5 mb-3 ml-3 md:ml-8">
-                            <input type="text" name="email" placeholder="Name" className="input" required />
+                        <div className="form-control mt-5 ml-3 md:ml-8">
+                            <input type="text" name="name" placeholder="Name" className="input" required />
                         </div>
-                        <div className="form-control mt-5 mb-3 ml-3 md:ml-8">
-                            <input type="email" name="photo" placeholder="Photo Url" className="input" required />
+                        <div className="form-control mt-3 ml-3 md:ml-8">
+                            <input type="text" name="photo" placeholder="Photo Url" className="input"/>
                         </div>
-                        <div className="form-control mt-5 mb-3 ml-3 md:ml-8">
-                            <input type="text" name="name" placeholder="Email" className="input" required />
+                        <div className="form-control mt-3 mb-3 ml-3 md:ml-8">
+                            <input type="email" name="email" placeholder="Email" className="input" required />
                         </div>
                         <div className="form-control">
                             <div className="relative ml-3 md:ml-8">
@@ -91,7 +86,7 @@ const Register = () => {
                         </div>
 
                         <div className="w-3/4 mx-auto mt-6">
-                            <button className="bg-purple-700 font-semibold text-white py-2 px-4 w-24 md:w-32 rounded-3xl hover:scale-105">Sign Up</button>
+                            <button type="submit" className="bg-purple-700 font-semibold text-white py-2 px-4 w-24 md:w-32 rounded-3xl hover:scale-105">Sign Up</button>
                         </div>
                     </form>
                 </div>
