@@ -4,8 +4,6 @@ import img3 from "../../assets/img3.png"
 import img4 from "../../assets/img4.png"
 import img5 from "../../assets/img5.png"
 
-
-
 const Imagery = () => {
     return (
         <div className="flex flex-col md:flex-row justify-center items-center gap-6 my-20">

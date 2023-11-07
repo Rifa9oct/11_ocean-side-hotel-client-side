@@ -6,6 +6,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import Imagery from "./Imagery";
 import SpecialOffers from "./SpecialOffers";
+import Newsletter from "./Newsletter";
 
 
 const Home = () => {
@@ -43,6 +44,7 @@ const Home = () => {
 
             <Imagery></Imagery>
             <SpecialOffers></SpecialOffers>
+            <Newsletter></Newsletter>
         </div>
     );
 };

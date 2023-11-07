@@ -3,7 +3,7 @@
 const SpecialOffers = () => {
     return (
         <div className="my-20 mx-auto max-w-[1200px]">
-            <h2 className="header text-center lg:text-left text-lg font-semibold">Special Offers</h2>
+            <h2 className="header mt-40 text-center lg:text-left text-lg font-semibold">Special Offers</h2>
             <h1 className="text-center lg:text-left text-3xl md:text-4xl lg:text-5xl text-black font-extrabold my-3">Best offer of the month</h1>
             <p className="text-center lg:text-left text-gray-500">Experience Fantastic Benefits and Obtain Better Rates When You<br />Make a Direct Booking on Our Official Website</p>
             <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-0 justify-between">
