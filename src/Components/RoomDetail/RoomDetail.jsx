@@ -4,15 +4,15 @@ import { FiDollarSign } from "react-icons/fi";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const RoomDetail = () => {
     const { user } = useContext(AuthContext);
     const lodeData = useLoaderData();
-    console.log(lodeData);
 
     const { img, title, roomDetail, price, roomSize, description, availability } = lodeData;
-
     const [date, setDate] = useState([]);
+    const [availableRooms, setAvailableRooms] = useState(availability);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -24,7 +24,6 @@ const RoomDetail = () => {
         form.reset();
     }
     const { checkIn, checkOut } = date;
-    const [availableRooms, setAvailableRooms] = useState(availability);
 
     // Calculate the duration and total price
     const checkInDate = new Date(checkIn);
@@ -35,43 +34,35 @@ const RoomDetail = () => {
 
     const handleConfirm = () => {
         if (availableRooms > 0) {
-            setAvailableRooms(availableRooms - 1);
+            const { email } = user;
+            const order = { img, email, totalPrice, checkInDate, checkOutDate, title, description };
+            axios.post(`http://localhost:5000/bookings`, order)
+                .then(data => {
+                    console.log(data);
+                    if (data.data.insertedId) {
+                        Swal.fire({
+                            title: 'Good job!',
+                            text: 'Booking added successfully.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        })
+                    }
+                    setAvailableRooms(availableRooms - 1);
+                })
         }
-        const { email } = user;
-        console.log(user)
-        const order = { img, email, totalPrice, checkInDate, checkOutDate, title, description };
-        fetch(`http://localhost:5000/bookings`, {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(order)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.insertedId) {
-                    Swal.fire({
-                        title: 'Good job!',
-                        text: 'Booking added successfully.',
-                        icon: 'success',
-                        confirmButtonText: 'OK'
-                    })
-                }
-            })
     }
-    
     console.log(availableRooms)
     return (
-        <div className="mb-32">
+        <div className="mb-32 max-w-[1200px] mx-auto">
             <img className="mx-auto mt-20" src={img} />
-            <div className="max-w-[1320px] mx-auto">
+            <div>
                 <h1 className="text-3xl font-bold mt-5">{title}</h1>
                 <p className="max-w-[900px] mt-4 text-gray-500">{roomDetail}</p>
                 <div className="flex gap-32 text-purple-600">
                     <p className="flex items-center gap-2 mt-2 font-bold"><MdOutlineBedroomChild className="text-2xl"></MdOutlineBedroomChild> {roomSize}</p>
                     <p className="flex items-center mt-2 font-bold"><FiDollarSign className="text-2xl"></FiDollarSign>{price} per night</p>
                 </div>
+                <p className="border-2 border-purple-600 text-purple-600 px-3 py-2 rounded-lg font-bold mt-5 w-[140px] ml-24">Availability {availableRooms}</p>
             </div>
 
             <div className="w-[1194px] h-[320px] bg-purple-100 mx-auto mt-10 rounded-[42px]">
