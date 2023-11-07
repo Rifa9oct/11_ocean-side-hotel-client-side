@@ -13,7 +13,7 @@ const Imagery = () => {
                 <img src={img1} />
                 <h1 className="absolute bottom-[40px] left-[110px] text-white font-bold text-2xl">Rooms</h1>
             </div>
-            <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="relative w-[300px] h-[260px]">
                     <img src={img2} />
                     <h1 className="absolute text-white font-bold text-2xl left-[110px] top-[190px]">Dining</h1>
@@ -30,7 +30,6 @@ const Imagery = () => {
                     <img src={img5} />
                     <h1 className="absolute text-white font-bold text-2xl left-[45px] top-[190px]">Service & Facilities</h1>
                 </div>
-
             </div>
         </div>
     );

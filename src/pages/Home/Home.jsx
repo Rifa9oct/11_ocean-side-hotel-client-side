@@ -5,6 +5,7 @@ import "./home.css"
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import Imagery from "./Imagery";
+import SpecialOffers from "./SpecialOffers";
 
 
 const Home = () => {
@@ -41,6 +42,7 @@ const Home = () => {
             </div>
 
             <Imagery></Imagery>
+            <SpecialOffers></SpecialOffers>
         </div>
     );
 };
