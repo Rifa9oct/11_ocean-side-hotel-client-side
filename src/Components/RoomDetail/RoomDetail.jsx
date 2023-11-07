@@ -63,7 +63,7 @@ const RoomDetail = () => {
                 <p className="border-2 border-purple-600 text-purple-600 px-3 py-2 rounded-lg font-bold mt-5 w-[140px] ml-24">Availability {availableRooms}</p>
             </div>
 
-            <div className="w-[1194px] h-[320px] bg-purple-100 mx-auto mt-10 rounded-[42px]">
+            <div className="w-[1200px] h-[320px] bg-purple-100 mx-auto mt-10 rounded-[42px]">
                 <h1 className="text-center text-2xl font-bold pt-[36px]">Book Your Room</h1>
                 <p className="text-gray-500 text-center text-sm">Discover the perfect space for you!</p>
                 <div >

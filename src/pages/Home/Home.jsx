@@ -4,6 +4,8 @@ import bannar from "../../assets/bannar.png"
 import "./home.css"
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import Imagery from "./Imagery";
+
 
 const Home = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -21,19 +23,24 @@ const Home = () => {
     }
 
     return (
-        <div className="md:relative">
-            <div>
-                <img className="hidden md:block w-full" src={bannar} alt="" />
+        <div>
+            {/* bannar sec */}
+            <div className="md:relative">
+                <div>
+                    <img className="hidden md:block w-full" src={bannar} alt="" />
+                </div>
+                <Navbar></Navbar>
+                <div className="md:absolute md:left-[50px] lg:left-[320px]  md:top-[180px] lg:top-[300px]">
+                    <h1 className="header hidden md:block mb-3 text-4xl lg:text-6xl font-bold">Discover Extraordinary<br />Comfort in Hotels</h1>
+                    <button onClick={handleLogout} className="lg:mt-5 ml-[150px] md:ml-0 bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-semibold py-2 px-8 hover:scale-105 rounded-2xl">
+                        {
+                            user ? "Sign Out" : "Sign In"
+                        }
+                    </button>
+                </div>
             </div>
-            <Navbar></Navbar>
-            <div className="md:absolute md:left-[50px] lg:left-[320px]  md:top-[220px] lg:top-[300px]">
-                <h1 className="header hidden md:block mb-3text-4xl lg:text-6xl font-bold">Discover Extraordinary<br />Comfort in Hotels</h1>
-                <button onClick={handleLogout} className=" mt-5  bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white font-semibold py-2 px-8 hover:scale-105 rounded-2xl">
-                    {
-                        user ? "Sign Out" : "Sign In"
-                    }
-                </button>
-            </div>
+
+            <Imagery></Imagery>
         </div>
     );
 };
