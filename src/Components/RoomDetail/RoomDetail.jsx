@@ -16,12 +16,10 @@ const RoomDetail = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        const form = e.target;
         const checkIn = e.target.checkIn.value;
         const checkOut = e.target.checkOut.value;
         const date = { checkIn, checkOut };
         setDate(date)
-        form.reset();
     }
     const { checkIn, checkOut } = date;
 
@@ -35,7 +33,7 @@ const RoomDetail = () => {
     const handleConfirm = () => {
         if (availableRooms > 0) {
             const { email } = user;
-            const order = { img, email, totalPrice, checkInDate, checkOutDate, title, description };
+            const order = { img, email, price, totalPrice, checkInDate, checkOutDate, title, description };
             axios.post(`http://localhost:5000/bookings`, order)
                 .then(data => {
                     console.log(data);

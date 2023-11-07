@@ -1,5 +1,6 @@
 import Swal from "sweetalert2";
 import moment from "moment/moment";
+import { Link } from "react-router-dom";
 
 const BookingCard = ({ booking, bookings, setBookings }) => {
     const { _id, img, title, checkInDate } = booking;
@@ -48,7 +49,7 @@ const BookingCard = ({ booking, bookings, setBookings }) => {
                     <h2 className="mt-12 text-white text-2xl font-bold text-center">{title}</h2>
 
                     <div className="card-actions justify-end">
-                        <button className="btn btn-outline btn-warning">Update Booking</button>
+                        <Link to={`/updatePage/${_id}`}><button className="btn btn-outline btn-warning">Update Booking</button></Link>
                         <button onClick={() => handleCancelBooking(_id, checkInDate)} className="btn btn-outline btn-warning">Cancel Booking</button>
                     </div>
                 </div>

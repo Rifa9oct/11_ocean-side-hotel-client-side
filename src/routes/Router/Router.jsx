@@ -10,6 +10,7 @@ import RoomDetail from "../../Components/RoomDetail/RoomDetail";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UpdatePage from "../../pages/UpdatePage/UpdatePage";
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,11 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>
       },
-      
+      {
+        path: "/updatePage/:id",
+        element: <UpdatePage></UpdatePage>,
+        loader: ({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
+      },
     ]
   },
 ]);
