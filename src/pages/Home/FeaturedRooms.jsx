@@ -20,7 +20,7 @@ const FeaturedRooms = () => {
 
 
     return (
-        <div className="max-w-[1320px] mx-auto my-20 p-5 lg:p-0">
+        <div className="max-w-[1320px] mx-auto mt-20 p-5 lg:p-0">
             <h1 className="text-black text-center lg:text-left text-4xl font-extrabold mb-10">Our Featured Rooms</h1>
             <div className="flex flex-col lg:flex-row justify-between items-center">
                 {/* Super Suite */}

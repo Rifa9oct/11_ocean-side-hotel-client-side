@@ -8,6 +8,7 @@ import Imagery from "./Imagery";
 import SpecialOffers from "./SpecialOffers";
 import Newsletter from "./Newsletter";
 import FeaturedRooms from "./FeaturedRooms";
+import Footer from "./Footer";
 
 
 const Home = () => {
@@ -47,6 +48,7 @@ const Home = () => {
             <SpecialOffers></SpecialOffers>
             <Newsletter></Newsletter>
             <FeaturedRooms></FeaturedRooms>
+            <Footer></Footer>
         </div>
     );
 };
