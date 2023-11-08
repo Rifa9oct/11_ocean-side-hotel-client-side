@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import Imagery from "./Imagery";
 import SpecialOffers from "./SpecialOffers";
 import Newsletter from "./Newsletter";
+import FeaturedRooms from "./FeaturedRooms";
 
 
 const Home = () => {
@@ -45,6 +46,7 @@ const Home = () => {
             <Imagery></Imagery>
             <SpecialOffers></SpecialOffers>
             <Newsletter></Newsletter>
+            <FeaturedRooms></FeaturedRooms>
         </div>
     );
 };
