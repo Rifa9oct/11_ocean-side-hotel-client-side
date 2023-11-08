@@ -11,6 +11,7 @@ import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UpdatePage from "../../pages/UpdatePage/UpdatePage";
+import ReviewPage from "../../pages/ReviewPage/ReviewPage";
 
 const router = createBrowserRouter([
   {
@@ -56,8 +57,13 @@ const router = createBrowserRouter([
         element: <UpdatePage></UpdatePage>,
         loader: ({params})=>fetch(`https://ocean-side-hotel-server-side.vercel.app/bookings/${params.id}`)
       },
+      {
+        path: "/reviews",
+        element: <ReviewPage></ReviewPage>
+      },
     ]
   },
 ]);
 
 export default router;
+
