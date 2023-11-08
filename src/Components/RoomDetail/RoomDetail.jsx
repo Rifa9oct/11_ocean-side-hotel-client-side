@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
+import Review from "./Review";
 
 const RoomDetail = () => {
     const { user } = useContext(AuthContext);
@@ -114,6 +115,11 @@ const RoomDetail = () => {
                         </div>
                     </form>
                 </div>
+            </div>
+
+            <div>
+                <h1 className="mt-20 mb-10 text-4xl text-center font-extrabold text-purple-600">Customer Reviews</h1>
+                <Review lodeData={lodeData}></Review>
             </div>
         </div>
     );

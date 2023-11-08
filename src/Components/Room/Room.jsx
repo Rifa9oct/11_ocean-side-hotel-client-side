@@ -2,6 +2,7 @@ import { TbHomeDollar } from "react-icons/tb";
 import { MdOutlineRateReview } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import ReviewCard from "../RoomDetail/Review";
 
 const Room = ({ room }) => {
     const { _id, img, title, price, description } = room;
@@ -13,14 +14,14 @@ const Room = ({ room }) => {
             .then(data => setReviews(data))
     }, [])
 
-    const familySuite = reviews.filter(item => item.room === "Family Suite");
-    const doubleRoom = reviews.filter(item => item.room === "Double Room");
-    const singleRoom = reviews.filter(item => item.room === "Single Room");
-    const deluxeSuite = reviews.filter(item => item.room === "Deluxe Suite");
-    const superSuite = reviews.filter(item => item.room === "Super Suite");
-    const honeymoonSuite = reviews.filter(item => item.room === "Honeymoon Suite");
+    // console.log(reviews);
 
-    console.log(familySuite, doubleRoom, singleRoom, deluxeSuite, superSuite, honeymoonSuite)
+    const familySuite = reviews?.filter(item => item.room === "Family Suite");
+    const doubleRoom = reviews?.filter(item => item.room === "Double Room");
+    const singleRoom = reviews?.filter(item => item.room === "Single Room");
+    const deluxeSuite = reviews?.filter(item => item.room === "Deluxe Suite");
+    const superSuite = reviews?.filter(item => item.room === "Super Suite");
+    const honeymoonSuite = reviews?.filter(item => item.room === "Honeymoon Suite");
 
     return (
         <div className={"md:w-[626px] mx-auto"}>
