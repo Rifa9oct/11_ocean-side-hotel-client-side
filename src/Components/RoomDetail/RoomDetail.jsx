@@ -51,7 +51,7 @@ const RoomDetail = () => {
     }
     console.log(availableRooms)
     return (
-        <div className="mb-32 max-w-[1200px] mx-auto">
+        <div className="mb-32 max-w-[1200px] p-5 lg:p-0 mx-auto">
             <img className="mx-auto mt-20" src={img} />
             <div>
                 <h1 className="text-3xl font-bold mt-5">{title}</h1>
@@ -63,13 +63,13 @@ const RoomDetail = () => {
                 <p className="border-2 border-purple-600 text-purple-600 px-3 py-2 rounded-lg font-bold mt-5 w-[140px] ml-24">Availability {availableRooms}</p>
             </div>
 
-            <div className="w-[1200px] h-[320px] bg-purple-100 mx-auto mt-10 rounded-[42px]">
+            <div className="lg:w-[1200px] md:h-[320px] bg-purple-100 mx-auto mt-10 rounded-[42px]">
                 <h1 className="text-center text-2xl font-bold pt-[36px]">Book Your Room</h1>
                 <p className="text-gray-500 text-center text-sm">Discover the perfect space for you!</p>
                 <div >
                     <form onSubmit={handleSubmit}>
-                        <div className="flex justify-around mt-10">
-                            <div className="flex gap-10">
+                        <div className="flex flex-col md:flex-row justify-around mt-10">
+                            <div className="flex flex-col md:flex-row  md:gap-10 mx-auto md:mx-0">
                                 <div>
                                     <label className="label">
                                         <span className="label-text font-semibold text-base">Check-In Date</span>
@@ -86,10 +86,9 @@ const RoomDetail = () => {
 
                             {
                                 user ? <>
-                                    <button type="submit" className="rounded-lg bg-purple-400 px-5 py-2 text-white font-bold mt-10 hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable" : "Book Now"}</button>
+                                    <button type="submit" className="rounded-lg bg-purple-400 md:px-5 py-2 text-white font-bold mt-5 md:mt-10 mx-24 md:mx-0 mb-5 md:mb-0 hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable" : "Book Now"}</button>
                                 </> :
-                                    <><Link to="/login"><button type="submit" className="rounded-lg bg-purple-400 px-5 py-2 text-white font-bold mt-10
-                                hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable" : "Book Now"}</button></Link></>
+                                    <><Link to="/login"><button type="submit" className="rounded-lg bg-purple-400 md:px-5 py-2 text-white font-bold mt-5 md:mt-10 mx-24 md:mx-0 mb-5 md:mb-0 hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable" : "Book Now"}</button></Link></>
                             }
 
                             {/* modal */}
@@ -107,7 +106,7 @@ const RoomDetail = () => {
                                     </div>
                                     <div className="modal-action">
                                         <form method="dialog">
-                                            <button onClick={handleConfirm} className="mr-[180px] rounded-lg bg-purple-400 px-5 py-2 text-white font-semibold mt-10 hover:bg-purple-600">Confirm</button>
+                                            <button onClick={handleConfirm} className="mr-[150px] md:mr-[180px] rounded-lg bg-purple-400 px-5 py-2 text-white font-semibold mt-10 hover:bg-purple-600">Confirm</button>
                                         </form>
                                     </div>
                                 </div>
