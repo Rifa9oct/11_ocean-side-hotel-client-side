@@ -1,17 +1,13 @@
-import { useContext, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
 const UpdatePage = () => {
-    const { user } = useContext(AuthContext);
     const lodeData = useLoaderData();
 
-    const { _id,title, description, price, availability, checkInDate, checkOutDate } = lodeData;
+    const { _id, title, description, price, checkInDate, checkOutDate } = lodeData;
     const [date, setDate] = useState([]);
-
-    const [availableRooms, setAvailableRooms] = useState(availability);
 
     const defaultCheckIn = checkInDate ? new Date(checkInDate).toISOString().substring(0, 10) : "";
     const defaultCheckOut = checkOutDate ? new Date(checkOutDate).toISOString().substring(0, 10) : "";
@@ -32,31 +28,31 @@ const UpdatePage = () => {
     const durationInDays = durationInMilliseconds / (1000 * 60 * 60 * 24);
     const totalPrice = price * durationInDays;
 
-    const updatebooking = {checkIndate,checkOutdate,totalPrice}
+    const updatebooking = { checkIndate, checkOutdate, totalPrice }
 
     const handleConfirm = () => {
-        axios.patch(`https://ocean-side-hotel-server-side.vercel.app/bookings/${_id}`,updatebooking)
-        .then(data => {
-            console.log(data.data);
-            if (data.data.modifiedCount > 0) {
-                Swal.fire({
-                    title: 'Good job!',
-                    text: 'Booking  updated successfully.',
-                    icon: 'success',
-                    confirmButtonText: 'OK'
-                })
-            }
-        })
+        axios.patch(`https://ocean-side-hotel-server-side.vercel.app/bookings/${_id}`, updatebooking)
+            .then(data => {
+                console.log(data.data);
+                if (data.data.modifiedCount > 0) {
+                    Swal.fire({
+                        title: 'Good job!',
+                        text: 'Booking  updated successfully.',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    })
+                }
+            })
     }
 
     return (
-        <div className="flex justify-center items-center h-[650px]">
-            <div className="w-[900px] h-[320px] bg-purple-100 rounded-[42px]">
+        <div className="flex justify-center items-center h-[650px] p-5 lg:p-0">
+            <div className="w-[900px] md:h-[320px] bg-purple-100 rounded-[42px]">
                 <h1 className="text-center text-2xl font-bold pt-[36px]">Update Your Booking</h1>
                 <div >
                     <form onSubmit={handleSubmit}>
-                        <div className="flex justify-around mt-10">
-                            <div className="flex gap-10">
+                        <div className="flex flex-col md:flex-row justify-around mt-10">
+                            <div className="flex flex-col md:flex-row md:gap-10 mx-auto md:mx-0">
                                 <div>
                                     <label className="label">
                                         <span className="label-text font-semibold text-base">Check-In Date</span>
@@ -71,13 +67,7 @@ const UpdatePage = () => {
                                 </div>
                             </div>
 
-                            {
-                                user ? <>
-                                    <button type="submit" className="rounded-lg bg-purple-400 px-5 py-2 text-white font-bold mt-10 hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable" : "Update Booking"}</button>
-                                </> :
-                                    <><Link to="/login"><button type="submit" className="rounded-lg bg-purple-400 px-5 py-2 text-white font-bold mt-10
-                                hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable" : "Update Booking"}</button></Link></>
-                            }
+                            <button type="submit" className="rounded-lg bg-purple-400 md:px-5 py-2 text-white font-bold mt-5 md:mt-10 mx-24 md:mx-0 mb-5 md:mb-0 hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()}>Update Booking</button>
 
                             {/* modal */}
                             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
