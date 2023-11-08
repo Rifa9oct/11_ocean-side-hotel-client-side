@@ -34,7 +34,7 @@ const RoomDetail = () => {
         if (availableRooms > 0) {
             const { email } = user;
             const order = { img, email, price, totalPrice, checkInDate, checkOutDate, title, description };
-            axios.post(`http://localhost:5000/bookings`, order)
+            axios.post(`https://ocean-side-hotel-server-side.vercel.app/bookings`, order)
                 .then(data => {
                     console.log(data);
                     if (data.data.insertedId) {

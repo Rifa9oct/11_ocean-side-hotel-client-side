@@ -35,7 +35,7 @@ const UpdatePage = () => {
     const updatebooking = {checkIndate,checkOutdate,totalPrice}
 
     const handleConfirm = () => {
-        axios.patch(`http://localhost:5000/bookings/${_id}`,updatebooking)
+        axios.patch(`https://ocean-side-hotel-server-side.vercel.app/bookings/${_id}`,updatebooking)
         .then(data => {
             console.log(data.data);
             if (data.data.modifiedCount > 0) {

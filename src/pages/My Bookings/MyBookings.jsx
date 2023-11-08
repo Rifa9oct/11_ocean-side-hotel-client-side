@@ -12,7 +12,7 @@ const MyBookings = () => {
     const url = `/bookings?email=${user.email}`
 
     useEffect(() => {
-        // fetch(`http://localhost:5000/bookings?email=${user.email}`,{credentials:"include"})
+        // fetch(`https://ocean-side-hotel-server-side.vercel.app/bookings?email=${user.email}`,{credentials:"include"})
         //     .then(res => res.json())
         //     .then(data => setBookings(data))
 

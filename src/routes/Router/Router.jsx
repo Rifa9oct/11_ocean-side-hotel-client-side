@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/roomDetail/:id",
         element: <RoomDetail></RoomDetail>,
-        loader: ({params})=>fetch(`http://localhost:5000/rooms/${params.id}`)
+        loader: ({params})=>fetch(`https://ocean-side-hotel-server-side.vercel.app/rooms/${params.id}`)
       },
       {
         path: "/myBookings",
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       {
         path: "/updatePage/:id",
         element: <UpdatePage></UpdatePage>,
-        loader: ({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)
+        loader: ({params})=>fetch(`https://ocean-side-hotel-server-side.vercel.app/bookings/${params.id}`)
       },
     ]
   },

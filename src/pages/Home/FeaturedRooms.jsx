@@ -9,7 +9,7 @@ import { MdOutlineFoodBank } from "react-icons/md";
 const FeaturedRooms = () => {
     const [rooms, setRooms] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/rooms")
+        fetch("https://ocean-side-hotel-server-side.vercel.app/rooms")
             .then(res => res.json())
             .then(data => setRooms(data))
     }, [])
