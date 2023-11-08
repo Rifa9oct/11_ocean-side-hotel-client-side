@@ -3,16 +3,22 @@ import Navbar from "../../Navebar/Navebar";
 import booking from "../../assets/booking.png"
 import BookingCard from "./BookingCard";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyBookings = () => {
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
+    const  axiosSecure = useAxiosSecure();
+    const url = `/bookings?email=${user.email}`
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bookings?email=${user.email}`,{credentials:"include"})
-            .then(res => res.json())
-            .then(data => setBookings(data))
-    }, [user.email])
+        // fetch(`http://localhost:5000/bookings?email=${user.email}`,{credentials:"include"})
+        //     .then(res => res.json())
+        //     .then(data => setBookings(data))
+
+        axiosSecure.get(url)
+        .then(res => setBookings(res.data))
+    }, [url,axiosSecure])
 
     return (
         <div>
