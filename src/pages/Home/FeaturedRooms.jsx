@@ -20,11 +20,11 @@ const FeaturedRooms = () => {
 
 
     return (
-        <div className="max-w-[1320px] mx-auto mt-20 p-5 lg:p-0">
+        <div className="max-w-[1320px] mx-auto mt-20 p-5 lg:p-0  overflow-x-hidden">
             <h1 className="text-black text-center lg:text-left text-4xl font-extrabold mb-10">Our Featured Rooms</h1>
             <div className="flex flex-col lg:flex-row justify-between items-center">
                 {/* Super Suite */}
-                <div>
+                <div data-aos="fade-right">
                     <div className={"md:w-[626px] mx-auto"}>
                         <img src={superSuite?.img} />
                         <h1 className="text-xl my-2 md:text-2xl font-bold mt-3">{superSuite?.title}</h1>
@@ -40,7 +40,7 @@ const FeaturedRooms = () => {
                 </div>
 
                 {/* Deluxe Suite*/}
-                <div>
+                <div data-aos="fade-left">
                     <div className={"md:w-[626px] mx-auto"}>
                         <img src={deluxeSuite?.img} />
                         <h1 className="text-xl my-2 md:text-2xl font-bold mt-3">{deluxeSuite?.title}</h1>

@@ -6,7 +6,7 @@ import img5 from "../../assets/img5.png"
 
 const Imagery = () => {
     return (
-        <div className="flex flex-col md:flex-row justify-center items-center gap-6 my-20">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-20" data-aos="fade-up" data-aos-duration="2000">
             <div className="relative w-[300px] h-[560px]">
                 <img src={img1} />
                 <h1 className="absolute bottom-[40px] left-[110px] text-white font-bold text-2xl">Rooms</h1>

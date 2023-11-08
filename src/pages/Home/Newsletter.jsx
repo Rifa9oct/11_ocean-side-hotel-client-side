@@ -1,8 +1,8 @@
 
 const Newsletter = () => {
     return (
-        <div className="bg-purple-100 py-16 my-40">
-            <div className="max-w-[1200px] mx-auto">
+        <div className="bg-purple-100 py-16 my-40  overflow-x-hidden">
+            <div className="max-w-[1200px] mx-auto"  data-aos="zoom-in-down">
                 <h4 className="tracking-[6px] text-[#2200ff] text-lg font-semibold text-center">OUR TEAM</h4>
                 <h2 className="text-center text-black text-4xl font-extrabold">Subscribe Our Newsleter</h2>
                 <div className="flex flex-col md:flex-row justify-between items-center mt-10">
