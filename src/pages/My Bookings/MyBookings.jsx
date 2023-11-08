@@ -9,7 +9,7 @@ const MyBookings = () => {
     const [bookings, setBookings] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/bookings?email=${user.email}`)
+        fetch(`http://localhost:5000/bookings?email=${user.email}`,{credentials:"include"})
             .then(res => res.json())
             .then(data => setBookings(data))
     }, [user.email])
