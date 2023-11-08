@@ -22,7 +22,7 @@ const MyBookings = () => {
 
     return (
         <div>
-            <div className="md:relative">
+            <div className="md:relative mt-[230px] md:mt-0">
                 <div>
                     <img className="hidden md:block w-full" src={booking} alt="" />
                 </div>

@@ -46,9 +46,8 @@ const Login = () => {
             <div className="w-2/4">
                 <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-black">Sign In</h1>
                 {/* continue with google */}
-                <div className="flex items-center w-[50%] md:w-[70%] lg:w-[60%] justify-center mx-auto mt-4 bg-[#F4F4F4] py-2 text-gray-500 hover:text-blue-500 font-semibold shadow-md rounded-3xl hover:scale-105">
-                    <FcGoogle className="text-2xl mr-2"></FcGoogle>
-                    <button onClick={handleGoogleSignIn} className="hidden md:block">Continue with google</button>
+                <div className="flex items-center md:w-[70%] lg:w-[60%] justify-center mx-auto mt-4 bg-[#F4F4F4] py-2 text-gray-500 hover:text-blue-500 font-semibold shadow-md rounded-3xl hover:scale-105">  
+                    <button onClick={handleGoogleSignIn} className="text-xs md:text-base"><FcGoogle className="inline text-2xl mr-2"></FcGoogle>Continue with google</button>
                 </div>
 
                 <p className="text-xs md:text-sm text-gray-600 mt-3">or use your email password</p>
