@@ -11,9 +11,10 @@ const RoomDetail = () => {
     const { user } = useContext(AuthContext);
     const lodeData = useLoaderData();
 
-    const { img, title, roomDetail, price, roomSize, description, availability } = lodeData;
+    const { _id, img, title, roomDetail, price, roomSize, description, availability } = lodeData;
     const [date, setDate] = useState([]);
     const [availableRooms, setAvailableRooms] = useState(availability);
+
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -46,11 +47,20 @@ const RoomDetail = () => {
                             confirmButtonText: 'OK'
                         })
                     }
+                    console.log(availability)
                     setAvailableRooms(availableRooms - 1);
+                    const dec = availability - 1
+                    const value = { dec };
+                    console.log(value)
+
+                    axios.patch(`https://ocean-side-hotel-server-side.vercel.app/rooms/${_id}`, value)
+                        .then(res => console.log(res.data))
                 })
         }
     }
-    console.log(availableRooms)
+
+
+
     return (
         <div className="mb-32 max-w-[1200px] p-5 lg:p-0 mx-auto">
             <img className="mx-auto mt-20" src={img} />

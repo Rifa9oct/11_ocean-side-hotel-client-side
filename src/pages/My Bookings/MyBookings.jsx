@@ -4,8 +4,14 @@ import booking from "../../assets/booking.png"
 import BookingCard from "./BookingCard";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Helmet from "../../Helmet/Helmet";
 
 const MyBookings = () => {
+    const metaTags = [
+        { name: 'description', content: 'This is a description' },
+        { property: 'og:title', content: 'Open Graph Title' }
+    ];
+
     const { user } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
     const  axiosSecure = useAxiosSecure();
@@ -22,6 +28,7 @@ const MyBookings = () => {
 
     return (
         <div>
+            <Helmet title="My Bookings Page" meta={metaTags} />
             <div className="md:relative mt-[230px] md:mt-0">
                 <div>
                     <img className="hidden md:block w-full" src={booking} alt="" />

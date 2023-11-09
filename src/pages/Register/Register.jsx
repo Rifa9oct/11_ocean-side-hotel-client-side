@@ -4,9 +4,15 @@ import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import Helmet from "../../Helmet/Helmet";
 
 
 const Register = () => {
+    const metaTags = [
+        { name: 'description', content: 'This is a description' },
+        { property: 'og:title', content: 'Open Graph Title' }
+    ];
+
     const { createUser } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
 
@@ -49,6 +55,7 @@ const Register = () => {
 
     return (
         <div className="relative mx-5 flex flex-row-reverse lg:mx-auto p-3 md:p-10 text-center mb-20 lg:mb-0 mt-28 max-w-[850px] h-[400px] md:h-[450px] bg-purple-200 shadow-2xl rounded-[30px]">
+            <Helmet title="Sign Up Page" meta={metaTags} />
             {/* righ side side */}
             <div className="absolute bg-purple-700 w-2/4 h-[400px] md:h-[450px] top-0 left-0 rounded-tr-[150px] rounded-l-[30px] rounded-br-[100px]">
                 <div className="mt-16 md:mt-32 p-8">
@@ -67,7 +74,7 @@ const Register = () => {
                             <input type="text" name="name" placeholder="Name" className="input" required />
                         </div>
                         <div className="form-control mt-3 ml-3 md:ml-8">
-                            <input type="text" name="photo" placeholder="Photo Url" className="input"/>
+                            <input type="text" name="photo" placeholder="Photo Url" className="input" />
                         </div>
                         <div className="form-control mt-3 mb-3 ml-3 md:ml-8">
                             <input type="email" name="email" placeholder="Email" className="input" required />

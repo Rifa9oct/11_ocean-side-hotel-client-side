@@ -2,8 +2,14 @@ import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Helmet from "../../Helmet/Helmet";
 
 const UpdatePage = () => {
+    const metaTags = [
+        { name: 'description', content: 'This is a description' },
+        { property: 'og:title', content: 'Open Graph Title' }
+    ];
+
     const lodeData = useLoaderData();
 
     const { _id, title, description, price, checkInDate, checkOutDate } = lodeData;
@@ -47,6 +53,7 @@ const UpdatePage = () => {
 
     return (
         <div className="flex justify-center items-center h-[650px] p-5 lg:p-0">
+            <Helmet title="Update Page" meta={metaTags} />
             <div className="w-[900px] md:h-[320px] bg-purple-100 rounded-[42px]">
                 <h1 className="text-center text-2xl font-bold pt-[36px]">Update Your Booking</h1>
                 <div >

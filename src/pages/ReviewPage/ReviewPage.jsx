@@ -1,8 +1,13 @@
 import axios from "axios";
 import Swal from "sweetalert2";
+import Helmet from "../../Helmet/Helmet";
 
 
 const ReviewPage = () => {
+    const metaTags = [
+        { name: 'description', content: 'This is a description' },
+        { property: 'og:title', content: 'Open Graph Title' }
+    ];
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -31,6 +36,7 @@ const ReviewPage = () => {
 
     return (
         <div>
+            <Helmet title="Review Page" meta={metaTags} />
             <h1 className="text-2xl md:text-4xl font-extrabold text-center mt-20 mb-5">Add Your Review About Us</h1>
             <div className="lg:w-2/4 bg-green-200 rounded-lg py-10 flex justify-center mx-5 lg:mx-auto mb-20">
                 <form onSubmit={handleSubmit} className="grid grid-col-1 md:grid-cols-2 gap-8 items-center">

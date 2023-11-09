@@ -1,9 +1,15 @@
+import Helmet from "../../Helmet/Helmet";
 import Navbar from "../../Navebar/Navebar";
 import gallery from "../../assets/gallery.png"
 
 const Gallery = () => {
+    const metaTags = [
+        { name: 'description', content: 'This is a description' },
+        { property: 'og:title', content: 'Open Graph Title' }
+    ];
     return (
         <div>
+            <Helmet title="Gallery Page" meta={metaTags} />
             <div>
                 <div className="md:relative">
                     <div>

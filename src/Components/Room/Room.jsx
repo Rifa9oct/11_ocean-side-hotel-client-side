@@ -2,7 +2,6 @@ import { TbHomeDollar } from "react-icons/tb";
 import { MdOutlineRateReview } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import ReviewCard from "../RoomDetail/Review";
 
 const Room = ({ room }) => {
     const { _id, img, title, price, description } = room;

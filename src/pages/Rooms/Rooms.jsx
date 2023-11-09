@@ -2,8 +2,14 @@ import { useEffect, useState } from "react";
 import Navbar from "../../Navebar/Navebar";
 import room from "../../assets/rooms.png"
 import Room from "../../Components/Room/Room";
+import Helmet from "../../Helmet/Helmet";
 
 const Rooms = () => {
+    const metaTags = [
+        { name: 'description', content: 'This is a description' },
+        { property: 'og:title', content: 'Open Graph Title' }
+    ];
+
     const [rooms, setRooms] = useState([]);
     const [sortByPrice, setSortByPrice] = useState(false);
     useEffect(() => {
@@ -21,6 +27,7 @@ const Rooms = () => {
 
     return (
         <div className="md:relative">
+            <Helmet title="Rooms Page" meta={metaTags} />
             <div>
                 <img className="hidden md:block w-full" src={room} alt="" />
             </div>

@@ -4,9 +4,14 @@ import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
-
+import Helmet from "../../Helmet/Helmet";
 
 const Login = () => {
+    const metaTags = [
+        { name: 'description', content: 'This is a description' },
+        { property: 'og:title', content: 'Open Graph Title' }
+    ];
+
     const [showPassword, setShowPassword] = useState(false);
     const { signinUser, setLogin, signInWithGoogle } = useContext(AuthContext);
     const location = useLocation();
@@ -43,6 +48,7 @@ const Login = () => {
 
     return (
         <div className="relative mx-5 lg:mx-auto p-3 md:p-10 text-center mb-20 lg:mb-0 mt-28 max-w-[850px] h-[400px] md:h-[450px] bg-purple-200 shadow-2xl rounded-[30px]">
+            <Helmet title="Sign In Page" meta={metaTags} />
             <div className="w-2/4">
                 <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-black">Sign In</h1>
                 {/* continue with google */}
