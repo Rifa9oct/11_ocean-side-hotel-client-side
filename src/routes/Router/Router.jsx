@@ -58,8 +58,9 @@ const router = createBrowserRouter([
         loader: ({params})=>fetch(`https://ocean-side-hotel-server-side.vercel.app/bookings/${params.id}`)
       },
       {
-        path: "/reviews",
-        element: <ReviewPage></ReviewPage>
+        path: "/reviews/:id",
+        element: <PrivateRoute><ReviewPage></ReviewPage></PrivateRoute>,
+        loader: ({params})=>fetch(`https://ocean-side-hotel-server-side.vercel.app/rooms/${params.id}`)
       },
     ]
   },

@@ -14,6 +14,7 @@ const RoomDetail = () => {
     const { _id, img, title, roomDetail, price, roomSize, description, availability } = lodeData;
     const [date, setDate] = useState([]);
     const [availableRooms, setAvailableRooms] = useState(availability);
+    const [bookingConfirmed, setBookingConfirmed] = useState(false);
 
 
     const handleSubmit = e => {
@@ -45,7 +46,8 @@ const RoomDetail = () => {
                             text: 'Booking added successfully.',
                             icon: 'success',
                             confirmButtonText: 'OK'
-                        })
+                        });
+                        setBookingConfirmed(true);
                     }
                     console.log(availability)
                     setAvailableRooms(availableRooms - 1);
@@ -58,7 +60,6 @@ const RoomDetail = () => {
                 })
         }
     }
-
 
 
     return (
@@ -124,6 +125,14 @@ const RoomDetail = () => {
                             </dialog>
                         </div>
                     </form>
+                    <div className="flex justify-center pb-5 md:mt-6">
+                        {
+                            bookingConfirmed ? <Link to={`/reviews/${_id}`}><button className="btn bg-purple-500 text-white hover:scale-105" disabled={!bookingConfirmed}>Add Reviews</button></Link> :
+
+                            <button className="btn hover:scale-105" disabled={!bookingConfirmed}>Add Reviews</button>
+                        }
+                        
+                    </div>
                 </div>
             </div>
 

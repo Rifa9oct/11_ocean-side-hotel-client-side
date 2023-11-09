@@ -1,7 +1,7 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 import Helmet from "../../Helmet/Helmet";
-
+import { useLoaderData } from "react-router-dom";
 
 const ReviewPage = () => {
     const metaTags = [
@@ -9,6 +9,8 @@ const ReviewPage = () => {
         { property: 'og:title', content: 'Open Graph Title' }
     ];
 
+    const lodeData = useLoaderData();
+    const {title} = lodeData;
     const handleSubmit = e => {
         e.preventDefault();
         const name = e.target.elements.name.value;
@@ -20,7 +22,7 @@ const ReviewPage = () => {
 
         const review = {name, photoUrl, room, rating, comment};
         console.log(review)
-        axios.post("https://ocean-side-hotel-server-side.vercel.app/reviews", review)
+        axios.post("https://ocean-side-hotel-server-side.vercel.app/reviews",review)
                 .then(data => {
                     console.log(data);
                     if (data.data.insertedId) {
@@ -56,15 +58,7 @@ const ReviewPage = () => {
                         <label className="label">
                             <span className="label-text">Select Room</span>
                         </label>
-                        <select name="room" className="select select-info w-full max-w-xs" required>
-                            <option disabled value="" selected>Select Room Name</option>
-                            <option value="Honeymoon Suite">Honeymoon Suite</option>
-                            <option value="Family Suite">Family Suite</option>
-                            <option value="Single Room">Single Room</option>
-                            <option value="Super Suite">Super Suite</option>
-                            <option value="Double Room">Double Room</option>
-                            <option value="Deluxe Suite">Deluxe Suite</option>
-                        </select>
+                        <input type="text" name="room" defaultValue={title} disabled className="mx-auto mb-3 input input-bordered input-info w-full max-w-xs" required/>
                     </div>
                     <div>
                         <label className="label">
