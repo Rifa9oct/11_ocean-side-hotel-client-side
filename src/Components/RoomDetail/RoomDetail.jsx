@@ -6,8 +6,14 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
 import Review from "./Review";
+import Helmet from "../../Helmet/Helmet";
 
 const RoomDetail = () => {
+    const metaTags = [
+        { name: 'description', content: 'This is a description' },
+        { property: 'og:title', content: 'Open Graph Title' }
+    ];
+
     const { user } = useContext(AuthContext);
     const lodeData = useLoaderData();
 
@@ -16,13 +22,30 @@ const RoomDetail = () => {
     const [availableRooms, setAvailableRooms] = useState(availability);
     const [bookingConfirmed, setBookingConfirmed] = useState(false);
 
-
     const handleSubmit = e => {
         e.preventDefault();
         const checkIn = e.target.checkIn.value;
         const checkOut = e.target.checkOut.value;
         const date = { checkIn, checkOut };
-        setDate(date)
+        const currentDate = new Date();
+        const checkInDate = new Date(checkIn);
+        const checkOutDate = new Date(checkOut);
+
+        if (isNaN(checkInDate) ||
+            isNaN(checkOutDate) ||
+            checkInDate < currentDate ||
+            checkInDate >= checkOutDate) {
+            Swal.fire({
+                title: 'Sorry!',
+                text: 'Select a valid Date.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+        else {
+            setDate(date);
+            document.getElementById("my_modal_5").showModal();
+        }
     }
     const { checkIn, checkOut } = date;
 
@@ -64,6 +87,7 @@ const RoomDetail = () => {
 
     return (
         <div className="mb-32 max-w-[1200px] p-5 lg:p-0 mx-auto">
+            <Helmet title="RoomDetail Page" meta={metaTags} />
             <img className="mx-auto mt-20" src={img} />
             <div>
                 <h1 className="text-3xl font-bold mt-5">{title}</h1>
@@ -98,9 +122,9 @@ const RoomDetail = () => {
 
                             {
                                 user ? <>
-                                    <button type="submit" className="rounded-lg bg-purple-400 md:px-5 py-2 text-white font-bold mt-5 md:mt-10 mx-24 md:mx-0 mb-5 md:mb-0 hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable" : "Book Now"}</button>
+                                    <button type="submit" className="rounded-lg bg-purple-400 md:px-5 py-2 text-white font-bold mt-5 md:mt-10 mx-24 md:mx-0 mb-5 md:mb-0 hover:bg-purple-600" disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable" : "Book Now"}</button>
                                 </> :
-                                    <><Link to="/login"><button type="submit" className="rounded-lg bg-purple-400 md:px-5 py-2 text-white font-bold mt-5 md:mt-10 mx-24 md:mx-0 mb-5 md:mb-0 hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()} disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable" : "Book Now"}</button></Link></>
+                                    <><Link to="/login"><button type="submit" className="rounded-lg bg-purple-400 md:px-5 py-2 text-white font-bold mt-5 md:mt-10 mx-24 md:mx-0 mb-5 md:mb-0 hover:bg-purple-600" disabled={availableRooms === 0}>{availableRooms === 0 ? "Unavailable" : "Book Now"}</button></Link></>
                             }
 
                             {/* modal */}
@@ -129,9 +153,9 @@ const RoomDetail = () => {
                         {
                             bookingConfirmed ? <Link to={`/reviews/${_id}`}><button className="btn bg-purple-500 text-white hover:scale-105" disabled={!bookingConfirmed}>Add Reviews</button></Link> :
 
-                            <button className="btn hover:scale-105" disabled={!bookingConfirmed}>Add Reviews</button>
+                                <button className="btn hover:scale-105" disabled={!bookingConfirmed}>Add Reviews</button>
                         }
-                        
+
                     </div>
                 </div>
             </div>
