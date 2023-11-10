@@ -23,7 +23,25 @@ const UpdatePage = () => {
         const checkIn = e.target.checkIn.value;
         const checkOut = e.target.checkOut.value;
         const date = { checkIn, checkOut };
-        setDate(date)
+        const currentDate = new Date();
+        const checkInDate = new Date(checkIn);
+        const checkOutDate = new Date(checkOut);
+
+        if (isNaN(checkInDate) ||
+        isNaN(checkOutDate) ||
+        checkInDate < currentDate ||
+        checkInDate >= checkOutDate) {
+        Swal.fire({
+            title: 'Sorry!',
+            text: 'Select a valid Date.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    }
+    else {
+        setDate(date);
+        document.getElementById("my_modal_5").showModal();
+    }
     }
     const { checkIn, checkOut } = date;
 
@@ -74,7 +92,7 @@ const UpdatePage = () => {
                                 </div>
                             </div>
 
-                            <button type="submit" className="rounded-lg bg-purple-400 md:px-5 py-2 text-white font-bold mt-5 md:mt-10 mx-24 md:mx-0 mb-5 md:mb-0 hover:bg-purple-600" onClick={() => document.getElementById('my_modal_5').showModal()}>Update Booking</button>
+                            <button type="submit" className="rounded-lg bg-purple-400 md:px-5 py-2 text-white font-bold mt-5 md:mt-10 mx-24 md:mx-0 mb-5 md:mb-0 hover:bg-purple-600">Update Booking</button>
 
                             {/* modal */}
                             <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
