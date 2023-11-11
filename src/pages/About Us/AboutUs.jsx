@@ -87,11 +87,11 @@ const AboutUs = () => {
 
             <div className="bg-blue-950 py-16">
                 <h1 className="text-5xl text-center text-white font-extrabold">Awards</h1>
-                <div className="flex flex-col lg:flex-row justify-center gap-8 lg:gap-24 mt-16">
-                    <img className="w-[180px] lg:w-[200px]  mx-auto lg:h-[200px]" src="https://i.ibb.co/jhmBV5b/award2.png" />
-                    <img className="w-[180px] lg:w-[200px]  mx-auto lg:h-[200px]" src="https://i.ibb.co/myVJPdT/award3.png" />
-                    <img className="w-[180px] lg:w-[230px]  mx-auto lg:h-[200px]" src="https://i.ibb.co/D9drvTM/award1.png" />
-                    <img className="w-[180px] lg:w-[200px]  mx-auto lg:h-[200px]" src="https://i.ibb.co/N31r6fX/award4.png" />
+                <div className="flex flex-col lg:flex-row justify-center gap-8 lg:8gap-24 mt-16">
+                    <img className="w-[180px] lg:w-[150px]  mx-auto lg:mx-0 lg:h-[150px]" src="https://i.ibb.co/jhmBV5b/award2.png" />
+                    <img className="w-[180px] lg:w-[150px]  mx-auto lg:mx-0 lg:h-[150px]" src="https://i.ibb.co/myVJPdT/award3.png" />
+                    <img className="w-[180px] lg:w-[180px]  mx-auto lg:mx-0 lg:h-[150px]" src="https://i.ibb.co/D9drvTM/award1.png" />
+                    <img className="w-[180px] lg:w-[150px]  mx-auto lg:mx-0 lg:h-[150px]" src="https://i.ibb.co/N31r6fX/award4.png" />
                 </div>
             </div>
         </div>
