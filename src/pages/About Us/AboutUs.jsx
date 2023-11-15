@@ -24,9 +24,12 @@ const AboutUs = () => {
             </div>
 
             <div className="mt-10 max-w-[1320px] mx-auto flex flex-col lg:flex-row justify-between items-center">
-                <img src="https://i.ibb.co/wNPNc48/luxury-redefined.png" />
+                <img data-aos="fade-up"
+                    data-aos-duration="3000" src="https://i.ibb.co/wNPNc48/luxury-redefined.png" />
                 <div>
-                    <div className="lg:w-[600px] p-5 lg:p-0">
+                    <div className="lg:w-[600px] p-5 lg:p-0" data-aos="fade-down"
+                        data-aos-easing="linear"
+                        data-aos-duration="1300">
                         <h1 className="text-4xl md:text-5xl mt-5 lg:mt-0 font-extrabold">About our <span className="text-cyan-400">Hotel</span></h1>
                         <p className="text-sm md:text-base mt-5 text-gray-500">Ocean Side Hotel, a tranquil haven nestled along the pristine shoreline, offers a captivating blend of luxury and coastal charm. With breathtaking views of the shimmering ocean, our hotel provides an idyllic escape for those seeking relaxation and rejuvenation. Immerse yourself in our elegantly appointed rooms, each designed to provide a comfortable retreat after a day of exploration. Indulge in exquisite dining at our seaside restaurant, where fresh, locally sourced ingredients are crafted into culinary masterpieces. Whether you are here for business or leisure, Ocean Side Hotel promises a memorable stay where the soothing rhythm of the waves becomes your constant companion.</p>
                     </div>
@@ -34,12 +37,15 @@ const AboutUs = () => {
             </div>
             <div className="mt-10 max-w-[1320px] mx-auto flex flex-col-reverse lg:flex-row gap-5 lg:gap-0 justify-between items-center">
                 <div>
-                    <div className="lg:w-[600px] p-5 lg:p-0">
+                    <div className="lg:w-[600px] p-5 lg:p-0" data-aos="fade-down"
+                        data-aos-easing="linear"
+                        data-aos-duration="1300">
                         <h1 className="text-4xl md:text-5xl font-extrabold">Exclusive <span className="text-cyan-400">Delicacies</span></h1>
                         <p className="text-sm md:text-base mt-5 text-gray-500">Indulge in a culinary journey like no other at Ocean Side Hotel's renowned dining establishment, "Exclusive Delicacies." Our chefs artfully blend flavors from around the world, presenting a menu that reflects sophistication and innovation. Immerse yourself in an ambiance of refined elegance as you savor each dish meticulously crafted with premium, locally sourced ingredients. From delectable seafood creations to exquisitely plated desserts, every bite is a symphony of taste and texture. "Exclusive Delicacies" promises a dining experience that transcends the ordinary, inviting you to savor the extraordinary at the heart of Ocean Side Hotel.</p>
                     </div>
                 </div>
-                <img src="https://i.ibb.co/y0yF9L9/delicacies.png" />
+                <img data-aos="fade-up"
+                    data-aos-duration="3000" src="https://i.ibb.co/y0yF9L9/delicacies.png" />
             </div>
 
 
@@ -86,8 +92,8 @@ const AboutUs = () => {
             </ScrollTrigger>
 
             <div className="bg-blue-950 py-16">
-                <h1 className="text-5xl text-center text-white font-extrabold">Awards</h1>
-                <div className="flex flex-col lg:flex-row justify-center gap-8 lg:gap-24 mt-16">
+                <h1 className="text-5xl text-center text-white font-extrabold" data-aos="zoom-in" data-aos-duration="2000">Awards</h1>
+                <div className="flex flex-col lg:flex-row justify-center gap-8 lg:gap-24 mt-16" data-aos="zoom-in" data-aos-duration="2000">
                     <img className="w-[180px] lg:w-[150px]  mx-auto lg:mx-0 lg:h-[150px]" src="https://i.ibb.co/jhmBV5b/award2.png" />
                     <img className="w-[180px] lg:w-[150px]  mx-auto lg:mx-0 lg:h-[150px]" src="https://i.ibb.co/myVJPdT/award3.png" />
                     <img className="w-[180px] lg:w-[180px]  mx-auto lg:mx-0 lg:h-[150px]" src="https://i.ibb.co/D9drvTM/award1.png" />

@@ -33,7 +33,7 @@ const MyBookings = () => {
                 <div>
                     <img className="hidden md:block w-full" src={booking} alt="" />
                 </div>
-                <div className="absolute top-0 md:bg-gradient-to-r from-[#003465B8] via-[#00000000] to-orange-300 w-full h-[352px] lg:h-[672px]">
+                <div className="absolute top-0 md:bg-gradient-to-r from-[#003465B8] via-[#00000000] to-[#76b9f8b8] w-full h-[352px] lg:h-[672px]">
                     <Navbar></Navbar>
                 </div>
 
