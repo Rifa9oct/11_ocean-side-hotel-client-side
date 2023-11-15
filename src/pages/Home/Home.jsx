@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Navbar from "../../Navebar/Navebar";
-import bannar from "../../assets/bannar.png"
+import video from "../../assets/video.mp4"
 import "./home.css"
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
@@ -38,9 +38,9 @@ const Home = () => {
             <Helmet title="Home Page" meta={metaTags} />
             {/* bannar sec */}
             <div className="md:relative">
-                <div>
-                    <img className="hidden md:block w-full" src={bannar} alt="" />
-                </div>
+                <video className="hidden md:block" autoPlay loop muted>
+                    <source src={video} type="video/mp4"/>
+                </video>
                 <Navbar></Navbar>
                 <div className="md:absolute md:left-[50px] lg:left-[320px]  md:top-[180px] lg:top-[300px]">
                     <h1 className="header hidden md:block mb-3 text-4xl lg:text-6xl font-bold">Discover Extraordinary<br />Comfort in Hotels</h1>
