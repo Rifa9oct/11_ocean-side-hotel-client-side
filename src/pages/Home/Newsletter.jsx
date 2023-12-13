@@ -12,7 +12,7 @@ const Newsletter = () => {
                         <form>
                             <input className="ml-[40px] md:ml-0 border outline-none my-8 bg-white shadow-lg py-4 lg:w-[600px] px-[67px] rounded-[50px]" type="email" placeholder="Your E-mail here..." />
                         </form>
-                        <button className="ml-[50px] md:ml-0  lg:w-[600px] text-white hover:scale-105 font-semibold px-16 lg:px-0 py-3 rounded-xl text-center bg-[#F60]">Subscribe Our Newsletter</button>
+                        <button className="ml-[50px] md:ml-0  lg:w-[600px] text-white hover:scale-105 font-semibold px-16 lg:px-0 py-3 rounded-xl text-center transition-all bg-[#F60]">Subscribe Our Newsletter</button>
                     </div>
                 </div>
             </div>

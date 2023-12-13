@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import Review from "./Review";
 import Helmet from "../../Helmet/Helmet";
+import emailjs from '@emailjs/browser';
 
 const RoomDetail = () => {
     const metaTags = [
@@ -66,7 +67,7 @@ const RoomDetail = () => {
                     if (data.data.insertedId) {
                         Swal.fire({
                             title: 'Good job!',
-                            text: 'Booking added successfully.',
+                            text: 'Booking added successfully.Please check your confirmation mail.💌',
                             icon: 'success',
                             confirmButtonText: 'OK'
                         });
@@ -80,6 +81,22 @@ const RoomDetail = () => {
 
                     axios.patch(`https://ocean-side-hotel-server-side.vercel.app/rooms/${_id}`, value)
                         .then(res => console.log(res.data))
+
+                        // Send confirmation email
+                    const templateParams = {
+                        to_email: user.email,
+                        from_name: 'OCEAN SIDE HOTEL',
+                        subject: 'Booking Confirmation',
+                        message: `Thank you for booking with us! Your booking details:\n\n${JSON.stringify(order, null, 2)}`
+                    };
+
+                    emailjs.send('service_r7shgvs', 'template_817cisf', templateParams, 'kf8L6L5rWew__efaS')
+                    .then(response => {
+                        console.log('Email sent:', response);
+                    })
+                    .catch(error => {
+                        console.error('Email error:', error);
+                    });
                 })
         }
     }

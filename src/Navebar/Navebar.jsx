@@ -10,23 +10,23 @@ const Navbar = () => {
         </div>
         <div className="flex gap-6 lg:gap-16 items-center">
             <li><NavLink to="/" className={({ isActive, isPending }) =>
-                isActive ? "active text-black font-semibold" : isPending ? "pending" : ""}>Home</NavLink>
+                isActive ? "active text-orange-500 font-semibold" : isPending ? "pending" : ""}>Home</NavLink>
             </li>
             <li>
                 <NavLink to="/aboutUs" className={({ isActive, isPending }) =>
-                    isActive ? "active text-black font-semibold" : isPending ? "pending" : ""}>About us</NavLink>
+                    isActive ? "active text-orange-500 font-semibold" : isPending ? "pending" : ""}>About us</NavLink>
             </li>
 
             <li><NavLink to="/gallery" className={({ isActive, isPending }) =>
-                isActive ? "active text-black font-semibold" : isPending ? "pending" : ""}>Gallery</NavLink></li>
+                isActive ? "active text-orange-500 font-semibold" : isPending ? "pending" : ""}>Gallery</NavLink></li>
 
             <li className="hidden md:flex flex-col items-center"><img className="w-[80px]" src={logo} /><h1 className="text-orange-500 text-xs tracking-[4px]">OCEAN SIDE HOTEL</h1></li>
 
             <li><NavLink to="/rooms" className={({ isActive, isPending }) =>
-                isActive ? "active text-black font-semibold" : isPending ? "pending" : ""}>Rooms</NavLink></li>
+                isActive ? "active text-orange-500 font-semibold" : isPending ? "pending" : ""}>Rooms</NavLink></li>
 
             <li><NavLink to="/myBookings" className={({ isActive, isPending }) =>
-                isActive ? "active text-black font-semibold" : isPending ? "pending" : ""}>My Bookings</NavLink></li>
+                isActive ? "active text-orange-500 font-semibold" : isPending ? "pending" : ""}>My Bookings</NavLink></li>
         </div>
     </>
 
